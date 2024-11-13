@@ -36,7 +36,7 @@ Conforme o enunciado do Projeto, é necessário exibir os seguintes dados:
 
 1. **Clone o repositório:**
    ```bash
-   git clone https://github.com/GabrielPozeti/Santander_Coders_Spring_Api_Application](https://github.com/lettsmex/Santander_Coders_Spring_Api_Application
+   git clone https://github.com/lettsmex/Santander_Coders_Spring_Api_Application
    ```
 
 2. **Inicie o banco de dados**
