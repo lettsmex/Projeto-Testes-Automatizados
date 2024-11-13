@@ -1,6 +1,6 @@
-# Projeto Programação Web II - Java Spring API
+# Projeto Java Spring API
 
-O Projeto realiza XXXXXXXXXXXXXXXXXXX
+O Projeto tem como foco o cadastro simples de produtos desenvolvido na conclusão do módulo Programação Web II no curso Ada Tech/Santander Coders 2024.
 
 
 ## Sobre
@@ -28,24 +28,28 @@ Conforme o enunciado do Projeto, é necessário exibir os seguintes dados:
 
 * JDK 17 ou superior;
 * Maven;
+* H2 Database;
 * IDE (IntelliJ IDEA, Visual Studio Code, etc.);
 * Git instalado para clonar o repositório.
 
-## Como Instalar
+## Como Instalar e Executar
 
 1. **Clone o repositório:**
    ```bash
-   git clone https://github.com/GabrielPozeti/Santander_Coders_Spring_Api_Application
+   git clone https://github.com/GabrielPozeti/Santander_Coders_Spring_Api_Application](https://github.com/lettsmex/Santander_Coders_Spring_Api_Application
    ```
 
-2. **Importe o projeto:**
+2. **Inicie o banco de dados**
 
-   Abra o projeto clonado em sua IDE de preferência.
+3. **Execute a aplicação:**
+   ```bash
+   /src/main/java/com/projetofinal5/ProjetoFinal5
+   ```
+   
 
+## API's
 
-## Como Executar
-
-Após a instalação, compile e execute o projeto através da Main.
+Dentro do Projeto foram instaladas duas API's de teste, sendo elas "Open Weather API" e "ViaCEP".
 
 ## Estrutura do Projeto
 
