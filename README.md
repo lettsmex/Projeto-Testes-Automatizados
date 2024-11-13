@@ -22,7 +22,6 @@ Conforme o enunciado do Projeto, é necessário exibir os seguintes dados:
 - Persistência em banco de dados (H2 ou Postgres);
 - Configuração de segurança: controle de rota e login (jwt opcional);
 - Consumo de uma API externa pública;
-- Frontend opcional.
 
 ## Pré-Requisitos para acessar o Projeto
 
@@ -48,8 +47,12 @@ Conforme o enunciado do Projeto, é necessário exibir os seguintes dados:
    ```
    
 
-4. **Acesse a aplicação:**
-   ```bash
+4. **Passo a passo para usar o Postman:**
+
+* Abra o Postman e selecione a opção para criar uma nova requisição.
+* Insira a URL correspondente ao endpoint que deseja testar.
+* Defina o método HTTP (GET, POST, PUT, DELETE) e envie a requisição.
+* Verifique a resposta retornada e ajuste conforme necessário.
          
 
 ## API's
