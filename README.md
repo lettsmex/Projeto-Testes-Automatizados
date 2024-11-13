@@ -29,6 +29,7 @@ Conforme o enunciado do Projeto, é necessário exibir os seguintes dados:
 * JDK 17 ou superior;
 * Maven;
 * H2 Database;
+* Postman
 * IDE (IntelliJ IDEA, Visual Studio Code, etc.);
 * Git instalado para clonar o repositório.
 
@@ -46,6 +47,10 @@ Conforme o enunciado do Projeto, é necessário exibir os seguintes dados:
    /src/main/java/com/projetofinal5/ProjetoFinal5
    ```
    
+
+4. **Acesse a aplicação:**
+   ```bash
+         
 
 ## API's
 
