@@ -16,6 +16,9 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class ProductDTO {
 
+    @NotBlank(message = "ID é obrigatório")
+    private Long id;
+
     @Size(max = 15, message = "Tamanho maximo de 15 caracteres")
     @NotBlank(message = "O nome é obrigatório")
     private String nome;
@@ -24,7 +27,7 @@ public class ProductDTO {
     @Pattern(regexp = "[a-zA-Z]+", message = "Somente letras")
     private String descricao;
 
-    private BigDecimal preco;
+    private Double preco;
 
     @Pattern(regexp = "[0-9]+", message = "Somente numeros")
     private int quantidade;
