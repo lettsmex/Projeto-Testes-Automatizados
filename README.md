@@ -1,11 +1,11 @@
-# Projeto Java Spring API
+# Projeto Testes Automatizados
 
-O Projeto tem como foco o cadastro simples de produtos desenvolvido na conclusão do módulo Programação Web II no curso Ada Tech/Santander Coders 2024.
+O Projeto tem como foco o teste de cadastro de produtos. Desenvolvido usando o projeto de conclusão do módulo Programação Web II, com a implementação da aba para Testes Automatizados.
 
 
 ## Sobre
 
-Esse projeto foi desenvolvido conforme técnicas ensinadas nas aulas de Programação Web II.
+Esse projeto foi desenvolvido durante o curso Backend Ada Tech/Santander Coders 2024, conforme técnicas ensinadas nas aulas de Testes Automatizados I.
 
 ## Integrantes:
 - Gabriel Pozeti;
@@ -18,17 +18,17 @@ Esse projeto foi desenvolvido conforme técnicas ensinadas nas aulas de Programa
 
 Conforme o enunciado do Projeto, é necessário exibir os seguintes dados:
 
-- Construir uma API;
-- Persistência em banco de dados (H2 ou Postgres);
-- Configuração de segurança: controle de rota e login (jwt opcional);
-- Consumo de uma API externa pública;
+"Construir os testes unitários, de integração e end-to-end para uma API REST:
+Lembre-se de que a pirâmide de testes é sustentada pelos testes unitários.
+Criar os testes de integração dos seus componentes (para isso, pode-se utilizar o WireMock, caso seja necessário conectar-se a outros endpoints).
+Criar os testes funcionais (end-to-end) para a sua API REST utilizando o Cucumber + WebClientTest.
+Lembre-se de que pode ser necessário configurar um "ambiente" para executar os testes."
 
 ## Pré-Requisitos para acessar o Projeto
 
 * JDK 17 ou superior;
 * Maven;
 * H2 Database;
-* Postman
 * IDE (IntelliJ IDEA, Visual Studio Code, etc.);
 * Git instalado para clonar o repositório.
 
@@ -36,28 +36,16 @@ Conforme o enunciado do Projeto, é necessário exibir os seguintes dados:
 
 1. **Clone o repositório:**
    ```bash
-   git clone https://github.com/lettsmex/Santander_Coders_Spring_Api_Application
+   git clone https://github.com/lettsmex/Projeto-Testes-Automatizados
    ```
 
 2. **Inicie o banco de dados**
 
 3. **Execute a aplicação:**
    ```bash
-   /src/main/java/com/projetofinal5/ProjetoFinal5
+   /src/test/java/com/projetofinal5/ProjetoFinal5/controller/ProductControllerTest
    ```
    
-
-4. **Passo a passo para usar o Postman:**
-
-* Abra o Postman e selecione a opção para criar uma nova requisição.
-* Insira a URL correspondente ao endpoint que deseja testar.
-* Defina o método HTTP (GET, POST, PUT, DELETE) e envie a requisição.
-* Verifique a resposta retornada e ajuste conforme necessário.
-         
-
-## API's
-
-Dentro do Projeto foram instaladas duas API's de teste, sendo elas "Open Weather API" e "ViaCEP".
 
 ## Estrutura do Projeto
 
