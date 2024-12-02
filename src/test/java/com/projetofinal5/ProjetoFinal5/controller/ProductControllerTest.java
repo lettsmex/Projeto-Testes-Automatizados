@@ -99,5 +99,13 @@ class ProductControllerTest {
 				.andExpect(jsonPath("$.preco").value(100.0))
 				.andExpect(jsonPath("$.quantidade").value(2));
 	}
+	@Test
+	public void deletarProdutoComSucessoTest() throws Exception {
 
+		doNothing().when(productService).deletarProduto(1L);
+
+		mockMvc.perform(delete("/produto/{id}", 1L))
+				.andExpect(status().isNoContent())
+				.andDo(print());
+	}
 }
