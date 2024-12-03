@@ -27,9 +27,9 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -99,6 +99,9 @@ class ProductControllerTest {
 				.andExpect(jsonPath("$.preco").value(100.0))
 				.andExpect(jsonPath("$.quantidade").value(2));
 	}
+
+
+	// Nesse teste será feito a exclusão do produto pelo seu ID
 	@Test
 	public void deletarProdutoComSucessoTest() throws Exception {
 
@@ -106,6 +109,18 @@ class ProductControllerTest {
 
 		mockMvc.perform(delete("/produto/{id}", 1L))
 				.andExpect(status().isNoContent())
+				.andDo(print());
+	}
+
+
+	// Nesse teste será feito a tentativa de exclusão do produto por um ID inexistente
+	@Test
+	public void deletarProdutoNaoEncontradoTest() throws Exception {
+		doThrow(new EntityNotFoundException("Produto não encontrado com ID 99"))
+				.when(productService).deletarProduto(99L);
+
+		mockMvc.perform(delete("/produto/{id}", 99L))
+				.andExpect(status().isNotFound())
 				.andDo(print());
 	}
 }
