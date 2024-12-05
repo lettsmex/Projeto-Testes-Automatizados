@@ -28,6 +28,7 @@ Lembre-se de que pode ser necessário configurar um "ambiente" para executar os 
 
 * JDK 17 ou superior;
 * Maven;
+* ⁠JUnit 5;
 * H2 Database;
 * IDE (IntelliJ IDEA, Visual Studio Code, etc.);
 * Git instalado para clonar o repositório.
@@ -39,9 +40,19 @@ Lembre-se de que pode ser necessário configurar um "ambiente" para executar os 
    git clone https://github.com/lettsmex/Projeto-Testes-Automatizados
    ```
 
-2. **Inicie o banco de dados**
+2. **Configure o ambiente:**
+Certifique-se de que o JDK esteja instalado e configurado corretamente.
 
-3. **Execute a aplicação:**
+3. **⁠Instale as dependências:**
+Utilize Maven para instalar as dependências do projeto.
+
+4. **Configure o Spring Boot:**
+Verifique se o Spring Boot está configurado corretamente no arquivo ```bash ⁠application.properties``` ou ```bash application.yml``` .
+
+5. **⁠Instale o JUnit:**
+dicione a dependência do JUnit ao arquivo ```pom.xml```.
+
+6. **Execute a aplicação:**
    ```bash
    /src/test/java/com/projetofinal5/ProjetoFinal5/controller/ProductControllerTest
    ```
