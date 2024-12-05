@@ -47,12 +47,9 @@ Certifique-se de que o JDK esteja instalado e configurado corretamente.
 Utilize Maven para instalar as dependências do projeto.
 
 4. **Configure o Spring Boot:**
-Verifique se o Spring Boot está configurado corretamente no arquivo ```⁠application.properties``` ou ```application.yml``` .
+Verifique se o Spring Boot está configurado corretamente no arquivo ```⁠application.properties``` .
 
-5. **⁠Instale o JUnit:**
-dicione a dependência do JUnit ao arquivo ```pom.xml```.
-
-6. **Execute a aplicação:**
+5. **Execute a aplicação:**
    ```bash
    /src/test/java/com/projetofinal5/ProjetoFinal5/controller/ProductControllerTest
    ```
