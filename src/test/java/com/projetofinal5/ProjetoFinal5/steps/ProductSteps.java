@@ -22,7 +22,11 @@ public class ProductSteps {
 
     @When("eu solicito a lista de todos os produtos")
     public void euSolicitoAListaDeTodosOsProdutos() {
-        response = productList.toString();
+        if (productList != null && !productList.isEmpty()) {
+            response = productList.toString();
+        } else {
+            response = "Lista de produtos está vazia";
+        }
     }
 
     @Then("eu devo receber uma lista de produtos")
@@ -34,13 +38,11 @@ public class ProductSteps {
 
     @Given("eu tenho dados de produto inválidos")
     public void euTenhoDadosDeProdutoInvalidos() {
-        // Simulando dados inválidos
         response = null;
     }
 
     @When("eu tento criar um produto")
     public void euTentoCriarUmProduto() {
-        // Tentando criar um produto com dados inválidos
         if (response == null) {
             response = "Bad Request";
         }
@@ -53,7 +55,9 @@ public class ProductSteps {
 
     @Given("existe um produto com ID {int}")
     public void existeUmProdutoComID(int id) {
-        productList = new ArrayList<>();
+        if (productList == null) {
+            productList = new ArrayList<>();
+        }
         productList.add("Produto " + id);
         assertTrue(productList.contains("Produto " + id));
     }
@@ -65,6 +69,7 @@ public class ProductSteps {
 
     @Then("o produto deve ser excluído com sucesso")
     public void oProdutoDeveSerExcluidoComSucesso() {
-        assertFalse(productList.contains("Produto 1"));
+        int id = 1;
+        assertFalse(productList.contains("Produto " + id));
     }
 }
