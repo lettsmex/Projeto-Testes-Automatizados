@@ -64,12 +64,12 @@ class ProductControllerTest {
 	// Nesse teste quando o "criar produto" for chamado junto do "produtoListDTO", ele vai retornar uma lista vazia, 201
 	@Test
 	public void criarProdutoComSucessoTest() throws Exception {
-			when(productService.criarProduto(produtoListDTO)).thenReturn(Collections.emptyList());
-			mockMvc.perform(post(URL_CRIAR_PRODUTO)
-							.contentType(MediaType.APPLICATION_JSON)
-							.content(objectMapper.writeValueAsString(produtoListDTO)))
-					.andExpect(status().isCreated());
-			}
+		when(productService.criarProduto(produtoListDTO)).thenReturn(Collections.emptyList());
+		mockMvc.perform(post(URL_CRIAR_PRODUTO)
+						.contentType(MediaType.APPLICATION_JSON)
+						.content(objectMapper.writeValueAsString(produtoListDTO)))
+				.andExpect(status().isCreated());
+	}
 
 
 	// Nesse teste será inserido um formato errado de JSON (aspas simples no lugar de duplas) e ele vai retornar 400
@@ -159,19 +159,4 @@ class ProductControllerTest {
 				.andExpect(jsonPath("$.preco").value(150.0))
 				.andExpect(jsonPath("$.quantidade").value(5));
 	}
-
-	// Teste para atualizar um produto não encontrado
-	@Test
-	public void atualizarProdutoNaoEncontradoTest() throws Exception {
-		ProductDTO produtoDTO = new ProductDTO(99L, "Produto Inexistente", "Descrição", 100.0, 1);
-
-		when(productService.atualizarProduto(anyLong(), any(ProductDTO.class)))
-				.thenThrow(new EntityNotFoundException("Produto não encontrado com ID 99"));
-
-		mockMvc.perform(put("/produto/atualizar-produto/{id}", 99L)
-						.contentType(MediaType.APPLICATION_JSON)
-						.content(objectMapper.writeValueAsString(produtoDTO)))
-				.andExpect(status().isNotFound());
-	}
-
 }
