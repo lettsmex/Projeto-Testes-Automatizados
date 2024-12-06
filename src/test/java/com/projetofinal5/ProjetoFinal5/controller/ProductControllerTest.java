@@ -123,4 +123,55 @@ class ProductControllerTest {
 				.andExpect(status().isNotFound())
 				.andDo(print());
 	}
+
+	// Teste para listar todos os produtos
+	@Test
+	public void listarTodosProdutosTest() throws Exception {
+		List<ProductDTO> produtosMock = Arrays.asList(
+				new ProductDTO(1L, "Produto A", "Descrição A", 100.0, 2),
+				new ProductDTO(2L, "Produto B", "Descrição B", 200.0, 3)
+		);
+
+		when(productService.listarTodosProdutos()).thenReturn(produtosMock);
+
+		mockMvc.perform(get("/produto/todos"))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$[0].id").value(1L))
+				.andExpect(jsonPath("$[0].nome").value("Produto A"))
+				.andExpect(jsonPath("$[1].id").value(2L))
+				.andExpect(jsonPath("$[1].nome").value("Produto B"));
+	}
+
+	// Teste para atualizar um produto com sucesso
+	@Test
+	public void atualizarProdutoComSucessoTest() throws Exception {
+		ProductDTO produtoAtualizado = new ProductDTO(1L, "Produto Atualizado", "Descrição Atualizada", 150.0, 5);
+
+		when(productService.atualizarProduto(anyLong(), any(ProductDTO.class))).thenReturn(produtoAtualizado);
+
+		mockMvc.perform(put("/produto/atualizar-produto/{id}", 1L)
+						.contentType(MediaType.APPLICATION_JSON)
+						.content(objectMapper.writeValueAsString(produtoAtualizado)))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.id").value(1L))
+				.andExpect(jsonPath("$.nome").value("Produto Atualizado"))
+				.andExpect(jsonPath("$.descricao").value("Descrição Atualizada"))
+				.andExpect(jsonPath("$.preco").value(150.0))
+				.andExpect(jsonPath("$.quantidade").value(5));
+	}
+
+	// Teste para atualizar um produto não encontrado
+	@Test
+	public void atualizarProdutoNaoEncontradoTest() throws Exception {
+		ProductDTO produtoDTO = new ProductDTO(99L, "Produto Inexistente", "Descrição", 100.0, 1);
+
+		when(productService.atualizarProduto(anyLong(), any(ProductDTO.class)))
+				.thenThrow(new EntityNotFoundException("Produto não encontrado com ID 99"));
+
+		mockMvc.perform(put("/produto/atualizar-produto/{id}", 99L)
+						.contentType(MediaType.APPLICATION_JSON)
+						.content(objectMapper.writeValueAsString(produtoDTO)))
+				.andExpect(status().isNotFound());
+	}
+
 }
